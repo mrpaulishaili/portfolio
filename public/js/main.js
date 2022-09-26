@@ -1,7 +1,7 @@
 import { BlogCard } from './components/blog.js';
 import navData from '../../data/nav.js';
 import { navLists } from './components/nav.js';
-import { logo } from './components/LOGO.JS';
+import { logo } from './components/logo.js';
 
 const DEVTO_USERNAME = 'mrpaulishaili';
 const BLOG_URL = `https://dev.to/api/articles?username=${DEVTO_USERNAME}`;
