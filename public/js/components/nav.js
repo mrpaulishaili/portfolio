@@ -1,17 +1,23 @@
-export const nav = (navData) => {
-  const navEl = document.createElement('nav');
-  const navList = document.createElement('ul');
+const nav = (container, data) => {
   const navItem = document.createElement('li');
   const navLink = document.createElement('a');
 
-  for (const { name, path } of navData) {
-    navLink.textContent = name;
-    navLink.href = path;
+  navLink.textContent = data.name;
+  navLink.href = data.path;
 
-    navItem.appendChild(navLink);
+  navItem.append(navLink);
 
-    navList.append(navItem);
+  return container.append(navItem);
+};
+
+export const navLists = (d) => {
+  const navList = document.createElement('ul');
+  const navEl = document.createElement('nav');
+
+  for (const data of d) {
+    nav(navList, data);
+    navEl.append(navList);
   }
 
-  navEl.append(navList);
+  document.querySelector('header').append(navEl);
 };

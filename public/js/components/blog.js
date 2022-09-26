@@ -16,6 +16,7 @@ export const BlogCard = (container, title, description, cover_image, url) => {
   cover_image !== null ? (blogIllustration.src = cover_image) : '';
   blogIllustration.height = 200;
   blogIllustration.width = 160;
+
   blogElement.append(blogIllustration, blogTitle, blogDescription, blogLink);
 
   container.append(blogElement);
