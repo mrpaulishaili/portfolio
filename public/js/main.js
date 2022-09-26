@@ -1,4 +1,5 @@
 import { BlogCard } from './components/blog.js';
+import navData from '../../data/nav.js';
 
 const DEVTO_USERNAME = 'mrpaulishaili';
 const BLOG_URL = `https://dev.to/api/articles?username=${DEVTO_USERNAME}`;
@@ -21,6 +22,7 @@ function blogpostsService() {
 
 const initApp = async () => {
   blogpostsService();
+  console.log(navData);
 };
 
 document.addEventListener('DOMContentLoaded', initApp);
