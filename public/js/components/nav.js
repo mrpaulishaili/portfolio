@@ -3,9 +3,9 @@ const nav = (container, data) => {
   const navLink = document.createElement('a');
 
   navLink.textContent = data.name;
-  navLink.href = location.href.includes('localhost')
-    ? `/dist${data.path}`
-    : `/portfolio${data.path}`;
+  navLink.href = location.pathname.includes('pages')
+    ? `..${data.path}`
+    : data.path;
 
   navItem.append(navLink);
 

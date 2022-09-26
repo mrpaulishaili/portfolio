@@ -28,6 +28,7 @@ const initApp = async () => {
   // HEADER NAV
   navLists(navData);
   logo();
+  console.log(location.pathname);
 };
 
 document.addEventListener('DOMContentLoaded', initApp);
