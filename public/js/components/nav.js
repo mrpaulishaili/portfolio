@@ -3,7 +3,7 @@ const nav = (container, data) => {
   const navLink = document.createElement('a');
 
   navLink.textContent = data.name;
-  navLink.href = !location.href.includes('localhost')
+  navLink.href = !location.href.includes('localhost' && '127.0.0.1')
     ? `/portfolio${data.path}`
     : `/dist${data.path}`;
 

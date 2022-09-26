@@ -2,10 +2,13 @@ import { BlogCard } from './components/blog.js';
 import navData from '../../data/nav.js';
 import { navLists } from './components/nav.js';
 import { logo } from './components/logo.js';
+import { observer } from './utilities/intersectionObserver.js';
 
 const DEVTO_USERNAME = 'mrpaulishaili';
 const BLOG_URL = `https://dev.to/api/articles?username=${DEVTO_USERNAME}`;
 const blogsDOM = document.querySelector('.blogs');
+
+const sections = document.querySelectorAll('section');
 
 function blogpostsService() {
   fetch(BLOG_URL)
@@ -28,7 +31,8 @@ const initApp = async () => {
   // HEADER NAV
   navLists(navData);
   logo();
-  console.log(location.pathname);
+
+  sections.forEach((el) => observer.observe(el));
 };
 
 document.addEventListener('DOMContentLoaded', initApp);
