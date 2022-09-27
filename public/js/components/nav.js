@@ -8,6 +8,7 @@ const nav = (container, data) => {
     : `/dist${data.path}`;
 
   navItem.append(navLink);
+  navItem.id = data.name.toLocaleLowerCase();
 
   return container.append(navItem);
 };

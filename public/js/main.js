@@ -3,6 +3,7 @@ import navData from '../../data/nav.js';
 import { navLists } from './components/nav.js';
 import { logo } from './components/logo.js';
 import { observer } from './utilities/intersectionObserver.js';
+import { showActiveNav } from './utilities/showActiveNav.js';
 
 const DEVTO_USERNAME = 'mrpaulishaili';
 const BLOG_URL = `https://dev.to/api/articles?username=${DEVTO_USERNAME}`;
@@ -24,19 +25,21 @@ async function blogpostsService() {
       console.warn('Something went wrong.', err);
     });
 }
-await blogpostsService();
 
-const initApp = () => {
+if (location.pathname.includes('blog')) {
+  await blogpostsService();
   let blogs;
   setTimeout(() => {
     blogs = blogsDOM.querySelectorAll('.blog');
-    console.log(blogs);
     blogs.forEach((el) => observer.observe(el));
   }, 1000);
+}
 
+const initApp = () => {
   // HEADER NAV
   navLists(navData);
   logo();
+  showActiveNav();
 
   sections.forEach((el) => observer.observe(el));
 };
