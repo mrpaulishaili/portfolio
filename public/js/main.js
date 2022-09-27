@@ -10,7 +10,7 @@ const blogsDOM = document.querySelector('.blogs');
 
 const sections = document.querySelectorAll('section');
 
-function blogpostsService() {
+async function blogpostsService() {
   fetch(BLOG_URL)
     .then((response) => response.json())
     .then((data) => {
@@ -24,9 +24,15 @@ function blogpostsService() {
       console.warn('Something went wrong.', err);
     });
 }
+await blogpostsService();
 
-const initApp = async () => {
-  blogpostsService();
+const initApp = () => {
+  let blogs;
+  setTimeout(() => {
+    blogs = blogsDOM.querySelectorAll('.blog');
+    console.log(blogs);
+    blogs.forEach((el) => observer.observe(el));
+  }, 1000);
 
   // HEADER NAV
   navLists(navData);

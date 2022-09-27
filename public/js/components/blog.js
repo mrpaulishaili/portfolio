@@ -17,7 +17,8 @@ export const BlogCard = (container, title, description, cover_image, url) => {
   blogIllustration.height = 200;
   blogIllustration.width = 160;
 
+  blogElement.classList.add('blog');
   blogElement.append(blogIllustration, blogTitle, blogDescription, blogLink);
 
-  container.append(blogElement);
+  return container.append(blogElement);
 };
