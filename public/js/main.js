@@ -16,8 +16,8 @@ async function blogpostsService() {
     .then((response) => response.json())
     .then((data) => {
       const results = data.filter((d) => d.cover_image !== null);
-      for (const { title, description, cover_image, url } of results) {
-        BlogCard(blogsDOM, title, description, cover_image, url);
+      for (const { title, description, cover_image, url, user } of results) {
+        BlogCard(blogsDOM, title, description, cover_image, url, user);
       }
     })
     .catch(function (err) {

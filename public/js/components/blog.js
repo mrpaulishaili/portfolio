@@ -1,9 +1,31 @@
-export const BlogCard = (container, title, description, cover_image, url) => {
+export const BlogCard = (
+  container,
+  title,
+  description,
+  cover_image,
+  url,
+  user
+) => {
   const blogElement = document.createElement('div'),
     blogLink = document.createElement('a'),
     blogDescription = document.createElement('p'),
     blogTitle = document.createElement('h3'),
-    blogIllustration = document.createElement('img');
+    blogIllustration = document.createElement('img'),
+    blogDate = document.createElement('p'),
+    blogAuthor = document.createElement('div'),
+    blogAuthorImage = document.createElement('img'),
+    blogAuthorName = document.createElement('p');
+
+  blogAuthorImage.src = user.profile_image;
+  blogAuthorImage.height = 20;
+  blogAuthorImage.width = 20;
+  blogAuthorImage.classList.add('blog__author--image');
+
+  blogAuthorName.textContent = user.name;
+
+  blogAuthor.classList.add('blog__author');
+
+  blogAuthor.append(blogAuthorImage, blogAuthorName, blogDate);
 
   blogLink.href = url;
   blogLink.target = '_blank';
@@ -16,9 +38,16 @@ export const BlogCard = (container, title, description, cover_image, url) => {
   cover_image !== null ? (blogIllustration.src = cover_image) : '';
   blogIllustration.height = 200;
   blogIllustration.width = 160;
+  blogIllustration.classList.add('blog__illustration');
 
   blogElement.classList.add('blog');
-  blogElement.append(blogIllustration, blogTitle, blogDescription, blogLink);
+  blogElement.append(
+    blogIllustration,
+    blogTitle,
+    blogDescription,
+    blogAuthor,
+    blogLink
+  );
 
   return container.append(blogElement);
 };
