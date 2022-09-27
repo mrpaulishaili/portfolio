@@ -47,7 +47,8 @@ if (location.pathname.includes('blog')) {
   setTimeout(() => {
     blogs = blogsDOM.querySelectorAll('.blog');
     blogs.forEach((el) => observer.observe(el));
-  }, 1000);
+  }, 500);
+  clearTimeout;
 }
 
 const initApp = () => {
