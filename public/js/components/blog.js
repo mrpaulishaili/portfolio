@@ -4,7 +4,8 @@ export const BlogCard = (
   description,
   cover_image,
   url,
-  user
+  user,
+  tag_list
 ) => {
   const blogElement = document.createElement('div'),
     blogLink = document.createElement('a'),
@@ -14,7 +15,19 @@ export const BlogCard = (
     blogDate = document.createElement('p'),
     blogAuthor = document.createElement('div'),
     blogAuthorImage = document.createElement('img'),
-    blogAuthorName = document.createElement('p');
+    blogAuthorName = document.createElement('p'),
+    blogTags = document.createElement('div');
+
+  tag_list.slice(0, 2).forEach((tag) => {
+    const blogTag = document.createElement('p');
+
+    blogTag.classList.add('blog__tag');
+    blogTag.textContent = tag;
+
+    blogTags.append(blogTag);
+  });
+
+  blogTags.classList.add('blog__tags');
 
   blogAuthorImage.src = user.profile_image;
   blogAuthorImage.height = 20;
@@ -43,6 +56,7 @@ export const BlogCard = (
   blogElement.classList.add('blog');
   blogElement.append(
     blogIllustration,
+    blogTags,
     blogTitle,
     blogDescription,
     blogAuthor,
