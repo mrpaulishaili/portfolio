@@ -1,10 +1,12 @@
 export const logo = () => {
   let logoEl = document.createElement('a');
 
-  logoEl.classList.add('logo');
+  logoEl.setAttribute('class', 'logo');
   logoEl.textContent = 'mrp';
-  logoEl.href = !location.href.includes('localhost' && '127.0.0.1')
-    ? `/portfolio`
-    : `/dist`;
-  document.querySelector('header').prepend(logoEl);
+  logoEl.href =
+    !location.href.includes('localhost') && !location.href.includes('127.0.0.1')
+      ? `/portfolio`
+      : `/dist`;
+
+  return logoEl;
 };

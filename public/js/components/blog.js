@@ -1,67 +1,139 @@
-export const BlogCard = (
-  container,
-  title,
-  description,
-  cover_image,
-  url,
-  user,
-  tag_list
-) => {
-  const blogElement = document.createElement('div'),
-    blogLink = document.createElement('a'),
-    blogDescription = document.createElement('p'),
-    blogTitle = document.createElement('h3'),
-    blogIllustration = document.createElement('img'),
-    blogDate = document.createElement('p'),
-    blogAuthor = document.createElement('div'),
-    blogAuthorImage = document.createElement('img'),
-    blogAuthorName = document.createElement('p'),
-    blogTags = document.createElement('div');
+const BlogCard = (title, description, cover_image, url, user, tag_list) => {
+  let el = document.createElement('div'),
+    Link = BlogLink(url),
+    Illustration = BlogIllustration(cover_image),
+    Title = BlogTitle(title),
+    Description = BlogDescription(description),
+    Author = BlogAuthor(user),
+    Tags = BlogTags(tag_list, 2);
 
-  tag_list.slice(0, 2).forEach((tag) => {
-    const blogTag = document.createElement('p');
+  el.classList.add('blog');
+  el.append(Illustration, Tags, Title, Description, Author, Link);
 
-    blogTag.classList.add('blog__tag');
-    blogTag.textContent = tag;
+  return el;
+};
 
-    blogTags.append(blogTag);
-  });
+/* BLOG LISTS */
 
-  blogTags.classList.add('blog__tags');
+export const BlogList = (result) => {
+  let el = document.querySelector('.blogs'),
+    { title, description, cover_image, url, user, tag_list } = result,
+    Blog = BlogCard(title, description, cover_image, url, user, tag_list);
 
-  blogAuthorImage.src = user.profile_image;
-  blogAuthorImage.height = 20;
-  blogAuthorImage.width = 20;
-  blogAuthorImage.classList.add('blog__author--image');
+  return el.append(Blog);
+};
 
-  blogAuthorName.textContent = user.name;
+/* BLOG ILLUSTRATION */
+const BlogIllustration = (cover_image) => {
+  let el = Image(cover_image, 'blog__illustration', 160, 200, 'Blog Image');
 
-  blogAuthor.classList.add('blog__author');
+  return el;
+};
 
-  blogAuthor.append(blogAuthorImage, blogAuthorName, blogDate);
+/* BLOG TITLE */
+const BlogTitle = (title) => {
+  let el = document.createElement('h3');
+  el.textContent = title;
 
-  blogLink.href = url;
-  blogLink.target = '_blank';
-  blogLink.rel = 'noopener noreferrer';
-  blogLink.textContent = 'Read more';
-  blogLink.classList.add('button');
+  return el;
+};
 
-  blogTitle.textContent = title;
-  blogDescription.textContent = description;
-  cover_image !== null ? (blogIllustration.src = cover_image) : '';
-  blogIllustration.height = 200;
-  blogIllustration.width = 160;
-  blogIllustration.classList.add('blog__illustration');
+/* BLOG DESCRIPTION */
+const BlogDescription = (description) => {
+  let el = document.createElement('p');
+  el.textContent = description;
 
-  blogElement.classList.add('blog');
-  blogElement.append(
-    blogIllustration,
-    blogTags,
-    blogTitle,
-    blogDescription,
-    blogAuthor,
-    blogLink
+  return el;
+};
+
+/* BLOG AUTHOR'S IMAGE */
+const BlogAuthorImage = (user) => {
+  let el = Image(
+    user.profile_image,
+    'blog__author--image',
+    20,
+    20,
+    'Author Image'
   );
 
-  return container.append(blogElement);
+  return el;
+};
+
+/* BLOG AUTHOR */
+
+const BlogAuthor = (user) => {
+  let el = document.createElement('div'),
+    AuthorName = BlogAuthorName(user),
+    AuthorImage = BlogAuthorImage(user);
+
+  el.setAttribute('class', 'blog__author');
+
+  el.append(AuthorImage, AuthorName);
+
+  return el;
+};
+
+/* BLOG AUTHOR'S NAME */
+const BlogAuthorName = ({ name }) => {
+  let el = document.createElement('p');
+
+  el.textContent = name;
+
+  return el;
+};
+
+/* BLOG TAGS */
+const BlogTags = (dataTags, limit = 2) => {
+  let el = document.createElement('div');
+  el.setAttribute('class', 'blog__tags');
+
+  dataTags.slice(0, limit).forEach((data) => {
+    let tagEl = tag(data);
+    el.append(tagEl);
+  });
+
+  return el;
+};
+
+/* BLOG LINK */
+const BlogLink = (url) => {
+  let el = document.createElement('a');
+
+  el.setAttribute('href', url);
+  el.setAttribute('target', '_blank');
+  el.setAttribute('rel', 'noopener noreferrer');
+  el.setAttribute('class', 'button');
+
+  el.textContent = 'Read more';
+
+  return el;
+};
+
+/* --------------------------------------- */
+
+/* TAG Elem */
+const tag = (text) => {
+  let el = document.createElement('p');
+  el.textContent = text;
+  el.setAttribute('class', 'blog__tags');
+  return el;
+};
+
+/* Image Elem */
+const Image = (src, classes, height = 100, width = 100, alt = 'image') => {
+  let el = document.createElement('img');
+
+  el.setAttribute('src', src);
+  el.setAttribute('height', height);
+  el.setAttribute('width', width);
+  el.setAttribute('alt', alt);
+  el.setAttribute('class', classes);
+
+  return el;
+};
+
+/* BLOG DATE */
+const BlogDate = (date) => {
+  let el = document.createElement('p');
+  return el;
 };

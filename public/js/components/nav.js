@@ -1,26 +1,51 @@
 const nav = (container, data) => {
-  const navItem = document.createElement('li');
-  const navLink = document.createElement('a');
+  const Link = navLink(data);
+  const Item = navItem(data);
 
-  navLink.textContent = data.name;
-  navLink.href = !location.href.includes('localhost')
-    ? `/portfolio${data.path}`
-    : `/dist${data.path}`;
+  Item.append(Link);
 
-  navItem.append(navLink);
-  navItem.id = data.name.toLocaleLowerCase();
-
-  return container.append(navItem);
+  return container.append(Item);
 };
 
-export const navLists = (d) => {
-  const navList = document.createElement('ul');
-  const navEl = document.createElement('nav');
+/* CREATE NAVLINK */
+
+const navLink = (data) => {
+  const link = document.createElement('a');
+  link.textContent = data.name;
+  link.setAttribute(
+    'href',
+    !location.href.includes('localhost') && !location.href.includes('127.0.0.1')
+      ? `/portfolio${data.path}`
+      : `/dist${data.path}`
+  );
+
+  return link;
+};
+
+/* CREATE NAVITEM */
+
+const navItem = (data) => {
+  const item = document.createElement('li'),
+    id = data.name.toLocaleLowerCase();
+  item.setAttribute('id', id);
+
+  return item;
+};
+
+/* CREATE NAVLIST */
+
+const navList = () => {
+  const list = document.createElement('ul');
+  return list;
+};
+
+export const navEl = (d) => {
+  const El = document.createElement('nav');
+  const List = navList();
 
   for (const data of d) {
-    nav(navList, data);
-    navEl.append(navList);
+    nav(List, data);
+    El.append(List);
   }
-
-  document.querySelector('header').append(navEl);
+  return El;
 };

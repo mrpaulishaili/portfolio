@@ -1,7 +1,14 @@
-// import navData from '../../../data/nav.js';
-// import { navLists } from './nav.js';
+import navData from '../../../data/nav.js';
+import { logo } from './logo.js';
+import { navEl } from './nav.js';
 
-// export const header = () => {
-//   const headerEl = document.querySelector('header');
+const header = () => {
+  const headerEl = document.querySelector('header');
+  const navElem = navEl(navData);
+  const logoElem = logo();
 
-// };
+  headerEl.prepend(logoElem);
+  headerEl.append(navElem);
+};
+
+export default header;
