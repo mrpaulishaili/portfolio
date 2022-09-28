@@ -18,11 +18,8 @@ const populateBlog = (data) => {
     let blogsDOM = document.querySelector('.blogs'),
       blogs;
 
-    setTimeout(() => {
-      blogs = blogsDOM.querySelectorAll('.blog');
-      blogs.forEach((el) => observer.observe(el));
-    }, 500);
-    clearTimeout;
+    blogs = blogsDOM.querySelectorAll('.blog');
+    blogs.forEach((el) => observer.observe(el));
   }
 };
 
