@@ -4,9 +4,8 @@ const sendMessage = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    form.reset();
-
     alert('updates loading...');
+    form.reset();
   };
   form.addEventListener('submit', handleSubmit);
 };
