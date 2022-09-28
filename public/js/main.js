@@ -21,6 +21,7 @@ const initApp = () => {
 
   if (location.href.includes('contact')) {
     sendMessage();
+    console.log(location);
   }
 };
 

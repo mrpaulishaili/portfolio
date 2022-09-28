@@ -1,6 +1,6 @@
 const sendMessage = () => {
   const form = document.querySelector('form');
-
+  console.log('loaded');
   const handleSubmit = (e) => {
     e.preventDefault();
 
