@@ -9,18 +9,14 @@ async function blogpostsService(URL) {
 }
 
 const populateBlog = (data) => {
-  if (location.pathname.includes('blog')) {
-    const results = data.filter((d) => d.cover_image !== null);
-    for (const result of results) {
-      BlogList(result);
-    }
-
-    let blogsDOM = document.querySelector('.blogs'),
-      blogs;
-
-    blogs = blogsDOM.querySelectorAll('.blog');
-    blogs.forEach((el) => observer.observe(el));
+  const results = data.filter((d) => d.cover_image !== null);
+  for (const result of results) {
+    BlogList(result);
   }
+
+  let blogsDOM = document.querySelector('.blogs');
+
+  blogsDOM.querySelectorAll('.blog').forEach((el) => observer.observe(el));
 };
 
 export default blogpostsService;

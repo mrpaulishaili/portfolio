@@ -1,3 +1,5 @@
+import Image from './generics/Image.js';
+
 const BlogCard = (title, description, cover_image, url, user, tag_list) => {
   let el = document.createElement('div'),
     Link = BlogLink(url),
@@ -101,29 +103,12 @@ const BlogLink = (url) => {
   return el;
 };
 
-const BlogDate = (date) => {
-  let el = document.createElement('p');
-  return el;
-};
-
 /* ---------------- GENERICS ----------------------- */
 
 const tag = (text) => {
   let el = document.createElement('p');
   el.textContent = text;
   el.setAttribute('class', 'blog__tags');
-  return el;
-};
-
-const Image = (src, classes, height = 100, width = 100, alt = 'image') => {
-  let el = document.createElement('img');
-
-  el.setAttribute('src', src);
-  el.setAttribute('height', height);
-  el.setAttribute('width', width);
-  el.setAttribute('alt', alt);
-  el.setAttribute('class', classes);
-
   return el;
 };
 

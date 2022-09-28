@@ -8,7 +8,6 @@ const nav = (container, data) => {
 };
 
 /* CREATE NAVLINK */
-
 const navLink = (data) => {
   const link = document.createElement('a');
   link.textContent = data.name;
@@ -23,7 +22,6 @@ const navLink = (data) => {
 };
 
 /* CREATE NAVITEM */
-
 const navItem = (data) => {
   const item = document.createElement('li'),
     id = data.name.toLocaleLowerCase();
@@ -33,7 +31,6 @@ const navItem = (data) => {
 };
 
 /* CREATE NAVLIST */
-
 const navList = () => {
   const list = document.createElement('ul');
   return list;
