@@ -14,8 +14,7 @@ const BlogCard = (title, description, cover_image, url, user, tag_list) => {
 };
 
 /* BLOG LISTS */
-
-export const BlogList = (result) => {
+const BlogList = (result) => {
   let el = document.querySelector('.blogs'),
     { title, description, cover_image, url, user, tag_list } = result,
     Blog = BlogCard(title, description, cover_image, url, user, tag_list);
@@ -23,14 +22,13 @@ export const BlogList = (result) => {
   return el.append(Blog);
 };
 
-/* BLOG ILLUSTRATION */
+/* ------------- COMPONENTS ----------------*/
 const BlogIllustration = (cover_image) => {
   let el = Image(cover_image, 'blog__illustration', 160, 200, 'Blog Image');
 
   return el;
 };
 
-/* BLOG TITLE */
 const BlogTitle = (title) => {
   let el = document.createElement('h3');
   el.textContent = title;
@@ -38,7 +36,6 @@ const BlogTitle = (title) => {
   return el;
 };
 
-/* BLOG DESCRIPTION */
 const BlogDescription = (description) => {
   let el = document.createElement('p');
   el.textContent = description;
@@ -46,7 +43,6 @@ const BlogDescription = (description) => {
   return el;
 };
 
-/* BLOG AUTHOR'S IMAGE */
 const BlogAuthorImage = (user) => {
   let el = Image(
     user.profile_image,
@@ -58,8 +54,6 @@ const BlogAuthorImage = (user) => {
 
   return el;
 };
-
-/* BLOG AUTHOR */
 
 const BlogAuthor = (user) => {
   let el = document.createElement('div'),
@@ -73,7 +67,6 @@ const BlogAuthor = (user) => {
   return el;
 };
 
-/* BLOG AUTHOR'S NAME */
 const BlogAuthorName = ({ name }) => {
   let el = document.createElement('p');
 
@@ -82,7 +75,6 @@ const BlogAuthorName = ({ name }) => {
   return el;
 };
 
-/* BLOG TAGS */
 const BlogTags = (dataTags, limit = 2) => {
   let el = document.createElement('div');
   el.setAttribute('class', 'blog__tags');
@@ -109,9 +101,13 @@ const BlogLink = (url) => {
   return el;
 };
 
-/* --------------------------------------- */
+const BlogDate = (date) => {
+  let el = document.createElement('p');
+  return el;
+};
 
-/* TAG Elem */
+/* ---------------- GENERICS ----------------------- */
+
 const tag = (text) => {
   let el = document.createElement('p');
   el.textContent = text;
@@ -119,7 +115,6 @@ const tag = (text) => {
   return el;
 };
 
-/* Image Elem */
 const Image = (src, classes, height = 100, width = 100, alt = 'image') => {
   let el = document.createElement('img');
 
@@ -132,8 +127,8 @@ const Image = (src, classes, height = 100, width = 100, alt = 'image') => {
   return el;
 };
 
-/* BLOG DATE */
-const BlogDate = (date) => {
-  let el = document.createElement('p');
-  return el;
-};
+/* ---------------- END OF GENERICS ----------------------- */
+
+/* ---------------- END OF COMPONENTS ----------------------- */
+
+export default BlogList;
