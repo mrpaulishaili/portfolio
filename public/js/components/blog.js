@@ -42,6 +42,8 @@ const BlogDescription = (description) => {
   let el = document.createElement('p');
   el.textContent = description;
 
+  el.setAttribute('class', 'blog__description');
+
   return el;
 };
 

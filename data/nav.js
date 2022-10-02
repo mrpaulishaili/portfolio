@@ -12,8 +12,8 @@ const navData = [
     path: '/pages/services.html',
   },
   {
-    name: 'Skills',
-    path: '/pages/skills.html',
+    name: 'Works',
+    path: '/pages/projects.html',
   },
   {
     name: 'Contact',

@@ -1,13 +1,16 @@
 import { observer } from '../utilities/intersectionObserver.js';
 import Image from './generics/Image.js';
 
-const ProjectCard = (img, title, description) => {
-  let el = document.createElement('div'),
+const ProjectCard = (img, title, description, liveURL) => {
+  let el = document.createElement('a'),
     Image = ProjectImage(img),
     Title = ProjectTitle(title),
     Description = ProjectDescription(description);
 
+  el.setAttribute('href', liveURL);
+  el.setAttribute('target', '_blank');
   el.setAttribute('class', 'project');
+
   el.append(Image, Title, Description);
   return el;
 };
@@ -31,8 +34,8 @@ const ProjectDescription = (description) => {
 
 const ProjectsList = (data) => {
   let el = document.querySelector('.projects'),
-    { img, title, description } = data,
-    Card = ProjectCard(img, title, description);
+    { img, title, description, liveURL } = data,
+    Card = ProjectCard(img, title, description, liveURL);
 
   el.append(Card);
   return el;
@@ -46,5 +49,7 @@ const populateProjects = (data) => {
   let projects = document.querySelectorAll('.project');
   projects.forEach((el) => observer.observe(el));
 };
+
+const ProjectGithubIcon = () => {};
 
 export default populateProjects;
