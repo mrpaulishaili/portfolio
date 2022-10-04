@@ -12,3 +12,15 @@ const header = () => {
 };
 
 export default header;
+
+// customElements.define(
+//   "header",
+//   class extends HTMLElement{
+
+//     constructor(){
+//       super();
+
+//       let el =  document.querySelector('header');
+//     }
+//   }
+// )
