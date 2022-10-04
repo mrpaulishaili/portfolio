@@ -1,6 +1,8 @@
+import BaseURL from '../utilities/BaseURL.js';
+
 const nav = (container, data) => {
-  const Link = navLink(data);
-  const Item = navItem(data);
+  let Link = navLink(data),
+    Item = navItem(data);
 
   Item.append(Link);
 
@@ -11,12 +13,7 @@ const nav = (container, data) => {
 const navLink = (data) => {
   const link = document.createElement('a');
   link.textContent = data.name;
-  link.setAttribute(
-    'href',
-    !location.href.includes('localhost') && !location.href.includes('127.0.0.1')
-      ? `/portfolio${data.path}`
-      : `/dist${data.path}`
-  );
+  link.setAttribute('href', `${BaseURL()}${data.path}`);
 
   return link;
 };

@@ -7,6 +7,7 @@ import blogpostsService from './api/blog.api.js';
 import sendMessage from './utilities/sendMessage.js';
 import populateProjects from './components/project.js';
 import { projectsData } from '../../data/projects.js';
+import Footer from './components/footer.js';
 
 /* API VARIABLES SETUP */
 const DEVTO_USERNAME = 'mrpaulishaili';
@@ -15,6 +16,7 @@ const BLOG_URL = `https://dev.to/api/articles?username=${DEVTO_USERNAME}`;
 const initApp = async () => {
   header();
   showActiveNav();
+  Footer();
 
   const sections = document.querySelectorAll('section');
   sections.forEach((el) => observer.observe(el));
