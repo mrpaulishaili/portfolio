@@ -8,6 +8,8 @@ import sendMessage from './utilities/sendMessage.js';
 import populateProjects from './components/project.js';
 import { projectsData } from '../../data/projects.js';
 import Footer from './components/footer.js';
+import populateClients from './components/client.js';
+import clientsData from '../../data/clients.js';
 
 /* API VARIABLES SETUP */
 const DEVTO_USERNAME = 'mrpaulishaili';
@@ -17,6 +19,8 @@ const initApp = async () => {
   header();
   showActiveNav();
   Footer();
+
+  populateClients(clientsData);
 
   const sections = document.querySelectorAll('section');
   sections.forEach((el) => observer.observe(el));
