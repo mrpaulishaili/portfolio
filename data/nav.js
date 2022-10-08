@@ -13,7 +13,7 @@ const navData = [
   },
   {
     name: 'Works',
-    path: '/pages/projects.html',
+    path: '/#clients',
   },
   {
     name: 'Contact',

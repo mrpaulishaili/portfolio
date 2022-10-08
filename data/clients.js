@@ -8,10 +8,21 @@ const clientsData = [
     liveURL: 'https://heartszibah.org',
   },
   {
+    name: 'May-Flair Confectioneries',
+    logo: 'Mayflair-logo.png',
+    description:
+      'May-Flair Confectioneries is a top-notch food and confectioneries brand that is committed to satisfying their customers with meals of high nutritional values.',
+    tasks: [
+      'Working as a Technical Officer and Advisory staff on Technical decisions',
+      'Developed Strategy and actionable plans on online brand growth',
+    ],
+    liveURL: 'https://ellesor.xyz',
+  },
+  {
     name: 'ELLESOR',
     logo: '',
     description:
-      'ELLESOR is a fashion-making brand founded and managed by Nkechinyere Harrison.',
+      'ELLESOR is a 21st century exploding fashion-making brand founded and managed by Nkechinyere Harrison.',
     tasks: [
       'Working as a Technical Officer and Advisory staff on Technical decisions',
       'Developed Strategy and actionable plans on online brand growth',
@@ -22,7 +33,7 @@ const clientsData = [
     name: 'DataXpress Professionals',
     logo: 'Dataxpress-Logo.png',
     description:
-      'A professional Data Analytics and solution providing company.',
+      'DataXpress Professionals is a professional Data Analytics and solution providing company.',
     tasks: [
       'Developed a Landing Page Website',
       'Site Analytics',
