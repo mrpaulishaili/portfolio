@@ -16,7 +16,7 @@ const clientsData = [
       'Working as a Technical Officer and Advisory staff on Technical decisions',
       'Developed Strategy and actionable plans on online brand growth',
     ],
-    liveURL: 'https://ellesor.xyz',
+    liveURL: 'https://www.youtube.com/channel/UC5FCMWhnReiSw4mxNxGOnMA',
   },
   {
     name: 'ELLESOR',
