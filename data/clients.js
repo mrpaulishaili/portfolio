@@ -3,7 +3,7 @@ const clientsData = [
     name: 'Heartszibah International',
     logo: 'Heartszibah-Logo.jpg',
     description:
-      'Heartszibah International is a fast-growring conglomerate LLC,devoted to providing healthy products and service lines to get you plugged in to living the good life.',
+      'Heartszibah International is a fast-growring conglomerate LLC,devoted to providing healthy products and service lines to get you to living the good life.',
     tasks: [
       'Developed lead-generating website pages',
       'Site Analytics',
