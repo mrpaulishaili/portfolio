@@ -4,15 +4,13 @@ const client = (name, logo, description, tasks, liveURL) => {
   let el = document.createElement('div'),
     Header = header(),
     Logo = clientLogo(logo, name),
-    Description = clientDescription(description, liveURL),
-    Tasks = theTasks(tasks),
-    CTA = cta();
+    Description = clientDescription(description, liveURL);
 
   Header.append(Logo, Description);
 
   el.setAttribute('class', 'client');
 
-  el.append(Header, Tasks, CTA);
+  el.append(Header);
 
   return el;
 };
@@ -63,27 +61,6 @@ See work</a
   return el;
 };
 
-const theTasks = (data) => {
-  let tasksContainer = document.createElement('div'),
-    title = document.createElement('h4'),
-    tasks = document.createElement('ul');
-
-  tasks.setAttribute('class', 'tasks-list');
-
-  title.textContent = 'Job Roles / descriptions';
-
-  tasksContainer.setAttribute('class', 'body tasks');
-  data.forEach((d) => {
-    let li = taskItem(d);
-
-    tasks.append(li);
-  });
-
-  tasksContainer.append(title, tasks);
-
-  return tasksContainer;
-};
-
 const taskItem = (d) => {
   let el = document.createElement('li');
   el.textContent = d;
@@ -100,18 +77,6 @@ const populateClients = (allData) => {
     el.append(Client);
   }
 
-  return el;
-};
-
-const cta = () => {
-  let el = document.createElement('button');
-
-  el.setAttribute('class', 'button cta');
-
-  el.innerHTML = `Read Testimonial
-  <svg>
-    <use xlink:href="./public/sprites/solid.svg#arrow-right"></use>
-  </svg>`;
   return el;
 };
 

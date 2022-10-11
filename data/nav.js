@@ -4,16 +4,16 @@ const navData = [
     path: '/',
   },
   {
-    name: 'Blog',
-    path: '/pages/blog.html',
-  },
-  {
-    name: 'Services',
-    path: '/pages/services.html',
+    name: 'Stack',
+    path: '/pages/stacks.html',
   },
   {
     name: 'Works',
     path: '/#clients',
+  },
+  {
+    name: 'Blog',
+    path: '/pages/blog.html',
   },
   {
     name: 'Contact',
